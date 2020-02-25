@@ -16,12 +16,12 @@ $(document).on('shiny:connected', function(event) {
   });
 
   Shiny.addCustomMessageHandler('addcookie', function(arg) {
-    Cookies.set(arg.name, arg.value);
+    Cookies.set(arg.name, arg.value, { path: '' });
     sendCookies();
   });
 
   Shiny.addCustomMessageHandler('rmcookie', function(arg) {
-    Cookies.remove(arg);
+    Cookies.remove(arg, { path: '' });
     sendCookies();
   });
 
